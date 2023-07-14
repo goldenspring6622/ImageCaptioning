@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        form * {
+            font-size: 20px;
+            /* Add other size-related styles as desired */
+        }
+
+        body {
+            background-image: url('./static/background.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
+    <title>Home</title>
+</head>
+
+<body>
+    <h1 style="text-align: center;">Image Captioning Flask Deploying</h1>
+    <h2 style="text-align: center;">Click "Choose File", take a pic, then press "Upload File", and I will describe it in
+        the box below</h2>
+
+    <form method='POST' enctype='multipart/form-data'
+        style="background-color:gray;justify-content:center; display: flex;border-style: double;padding: 20px; width: 400px;margin-left:auto;margin-right:auto;">
+        {{form.hidden_tag()}}
+        {{form.file()}}
+        {{form.submit()}}
+    </form>
+    <h2 style="text-align: center;font-family: Arial, Helvetica, sans-serif;">{{image_path}}</h2>
+
+    <img src="{{url_for('static',filename=image_path)}}" style="max-width: 55%;max-height:55%; width:50%;height:50%;display: block;
+        margin-left: auto;
+        margin-right: auto;">
+    <div class="container" style="justify-content:center;align-items: center;display: flex;">
+        <h1 style="
+            border-style: double;  border-color: #ffffff;padding: 20px;display: inline-block;">
+            {{content}}</h1>
+    </div>
+
+</body>
+
+</html>
