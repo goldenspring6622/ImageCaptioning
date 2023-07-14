@@ -1,0 +1,5 @@
+torch
+flask
+flask_wtf
+wtforms
+werkzeug
